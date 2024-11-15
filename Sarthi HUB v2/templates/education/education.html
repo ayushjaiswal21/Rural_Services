@@ -1,0 +1,321 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- for the arrows -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Custom CSS (optional, for further customizations) -->
+    <style>
+        .carousel-item img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .about-text {
+            max-width: 50%;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+        }
+
+        .about-video {
+            max-width: 45%;
+        }
+
+        
+        .schemes-section {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns */
+            gap: 20px;
+            padding: 20px;
+            background-color: #e8e8e8; /* Background color for the section */
+        }
+        .schemes-section img{
+            width: 144px;
+            height: 144px;
+        }
+
+        .scheme-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+            height: 250px; /* Adjusted height for the box */
+            overflow: hidden; /* Ensure content doesn't overflow the box */
+        }
+
+        .scheme-image {
+            width: 100%;
+            height: 150px; /* Adjust height to fit inside the box */
+            object-fit: cover; /* Maintain aspect ratio without exceeding the box */
+            border-radius: 8px;
+        }
+
+        .scheme-name {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+
+        .scheme-box:hover {
+            transform: scale(1.05);
+        }
+
+        .scheme-link {
+            text-decoration: none;
+            color: #333; /* Text color */
+        }
+    </style>
+
+{% endblock %}
+
+{% block authentication %}
+
+    <div class="login-section" style="margin-left: auto; display: flex; align-items: center;">
+        {% if authenticated %}
+            <a href="/logout" class="logout-link" style="margin-left: 20px;">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login', user_type='student') }}" class="login-link" style="margin-left: 20px;">Login /</a>
+            <a href="{{ url_for('register', user_type='student') }}" class="register-link" style="margin-left: 10px;">Register</a>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h1 style="text-align: center;">Explore Education Content</h1>
+
+    <!-- Bootstrap Carousel -->
+    <div id="govtCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Carousel Indicators (Optional Dots for Navigation) -->
+        <ol class="carousel-indicators">
+            <li data-target="#govtCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#govtCarousel" data-slide-to="1"></li>
+            <li data-target="#govtCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Carousel Inner (Slides) -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="static\images\Banner Images\Education\Education banner2.jpg" class="d-block w-100" alt="Govt Scheme 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Educaitonal Resources</h5>
+                    <p>A library of e-books,articiels,videos,and other study materials</p>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="static\images\Banner Images\Education\Education banner-3.jpg" class="d-block w-100" alt="Govt Scheme 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Remote Tutoring</h5>
+                    <p>One-on-one sessions with expert tutors.</p>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="static\images\Banner Images\Education\Education banner.png" class="d-block w-100" alt="Govt Scheme 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Progress Trackiing</h5>
+                    <p>Tools to monitor learning progress and set goals.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls (Next and Previous) -->
+        <a class="carousel-control-prev" href="#govtCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#govtCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- How it works -->
+
+    <h1 style="text-align: center;">How it works</h1>
+
+    <div class="container my-5">
+        <div class="row justify-content-center align-items-center text-center">
+            <!-- First Step -->
+            <div class="col-md-3">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 1</h4>
+                    <p>Select the service you need (e.g., Medical, Education, Govt Scheme)</p>
+                </div>
+            </div>
+
+            <!-- Arrow between boxes -->
+            <div class="col-md-1">
+                <i class="fas fa-arrow-right fa-3x"></i>
+            </div>
+
+            <!-- Second Step -->
+            <div class="col-md-3">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 2</h4>
+                    <p>Browse and explore the content or connect with experts</p>
+                </div>
+            </div>
+
+            <!-- Arrow between boxes -->
+            <div class="col-md-1">
+                <i class="fas fa-arrow-right fa-3x"></i>
+            </div>
+
+            <!-- Third Step -->
+            <div class="col-md-3">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 3</h4>
+                    <p>Get personalized recommendations or download information</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="schemes-section">
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/textbooks.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\1. Text book-01-01.png" alt="TextBook" class="scheme-image">
+                <h3 class="scheme-name">Textbook</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/learning-outcome.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\2. .png" alt="Learning Outcomes" class="scheme-image">
+                <h3 class="scheme-name">Learning Outcomes</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/eresources.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\3. .png" alt="eRources" class="scheme-image">
+                <h3 class="scheme-name">eRources</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/ict-initiatives.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\4. ICT initiave.png" alt="ICT initiave" class="scheme-image">
+                <h3 class="scheme-name">ICT initiave</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/policy-framework.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\5. NEP NCF.png" alt="NEP and NCFs" class="scheme-image">
+                <h3 class="scheme-name">NEP and NCFs</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/journals-and-periodicals.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\6. Journals.png" alt="Journals" class="scheme-image">
+                <h3 class="scheme-name">Journals</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/ldd/index.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\7. Library.png" alt="Library" class="scheme-image">
+                <h3 class="scheme-name">Library</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/accessibility.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\8. Accessibility.png" alt="Accessibility" class="scheme-image">
+                <h3 class="scheme-name">Accessibility</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/educational-survey.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\9. educational survey-01-01.png" alt="Educational Survey" class="scheme-image">
+                <h3 class="scheme-name">Educational Survey</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/national-talent-examination.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\10. NTSE_Icons.png" alt="NTSE" class="scheme-image">
+                <h3 class="scheme-name">NTSE</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/seminar.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\11. Event.png" alt="Events" class="scheme-image">
+                <h3 class="scheme-name">Events</h3>
+            </a>
+        </div>
+        <div class="scheme-box">
+            <a href="https://ncert.nic.in/mou.php" class="scheme-link" >
+                <img src="static\images\Education_Logos\12. MoU Partnership Icons.png" alt="MoUs and Partnership" class="scheme-image">
+                <h3 class="scheme-name">MoUs and Partnership</h3>
+            </a>
+        </div>
+        <!-- copy paste -->
+    </section>
+
+    <!-- About Section -->
+    <!-- About Section with Flexbox for Layout -->
+    <section id="about" style="padding: 50px 20px;">
+        <div class="about-container">
+        <!-- Left side: About and description -->
+        <div class="about-text">
+            <h2>About SarthiHub</h2>
+            <p>
+            Welcome to SarthiHub, your one-stop platform for rural services including medical consultations, educational resources, and government schemes. 
+            We aim to make essential services more accessible to rural communities, providing expertise and support right at your fingertips.
+            </p>
+            <a href="#" class="learn-more-btn">Learn More</a>
+            <a href="/cgf" class="learn-more-btn">Career guidence</a>
+
+        </div>
+    
+        <!-- Right side: Lazy-loaded video -->
+        <div class="about-video">
+            <!-- Placeholder image for the video -->
+            <img id="video-placeholder" src="static/images/Banner Images/tutorial_banner/education.png" alt="Tutorial video" style="width: 100%; cursor: pointer;" onclick="loadVideo()">
+            
+            <!-- Actual video (initially hidden) -->
+            <div id="video-player" style="display: none;">
+                <iframe id="tutorial-video" width="800" height="450" src="https://www.youtube.com/embed/Zu9NlgTJ8h4?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <script>
+        function loadVideo() {
+            document.getElementById("video-player").style.display = "block";
+            document.getElementById("video-placeholder").style.display = "none";
+        }
+        </script>
+        
+        </div>
+
+    </section>
+
+    
+
+
+{% endblock %}

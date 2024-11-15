@@ -1,0 +1,30 @@
+<!-- templates/education_login.html -->
+{% extends "education_LogReg_layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block page_title %}{{ user_type.capitalize() }} Login{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+    {% if user_type == 'student' %}
+        <a href="{{ url_for('login', user_type='teacher') }}" class="switch-link">Login as a Teacher</a>
+    {% else %}
+        <a href="{{ url_for('login', user_type='student') }}" class="switch-link">Login as a Student</a>
+    {% endif %}
+
+{% endblock %}

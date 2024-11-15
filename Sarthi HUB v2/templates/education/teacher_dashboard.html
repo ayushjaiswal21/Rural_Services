@@ -1,0 +1,212 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <style>
+        /* General page layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container for the entire content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styles (to prevent shrinking) */
+        /* header {
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            box-sizing: border-box;
+        }
+        */
+
+        /* Ensure the form takes up a decent width and doesn't shrink */
+        form {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        /* Fix filter dropdowns */
+        select {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Links for actions */
+        a {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Action buttons */
+        .add-content-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .add-content-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Ensure main content is not shrunk */
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+    </style>
+
+{% endblock %}
+
+
+
+{% block authentication %}
+    <div class="login-section" style="margin-left: auto; display: flex; align-items: center;">
+        <a href="/logout" class="logout-link" style="margin-left: 20px;">Logout</a>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+    <h2>Teacher Dashboard</h2>
+
+    <!-- Add Content Button -->
+    <button class="add-content-btn" onclick="window.location.href='/add_content'">Add Content</button>
+
+    <!-- Filter Form -->
+    <form method="GET" action="{{ url_for('teacher_dashboard') }}">
+        <label for="class">Filter by Class:</label>
+        <select name="class" id="class">
+            <option value="">All Classes</option>
+            {% for class in classes %}
+            <option value="{{ class.id }}">{{ class.class_name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="subject">Filter by Subject:</label>
+        <select name="subject" id="subject">
+            <option value="">All Subjects</option>
+            {% for subject in subjects %}
+            <option value="{{ subject.id }}">{{ subject.subject_name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="unit">Filter by Unit:</label>
+        <select name="unit" id="unit">
+            <option value="">All Units</option>
+            {% for unit in units %}
+            <option value="{{ unit.id }}">{{ unit.unit_name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <hr>
+
+    <!-- List of Uploaded Content -->
+    <h3>Your Uploaded Content</h3>
+
+    {% if contents %}
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Subject</th>
+                <th>Unit</th>
+                <th>Topic</th>
+                <th>Files</th>
+                <th>Updated At</th> <!-- New column for updated_at -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in contents %}
+            <tr>
+                <td>{{ content.class_name }}</td>
+                <td>{{ content.subject_name }}</td>
+                <td>{{ content.unit_name }}</td>
+                <td>{{ content.topic_name }}</td>
+                <td>
+                    {% if content.video_path %}
+                        <a href="{{ content.video_path }}" class="download-link">Download Video</a>
+                    {% endif %}
+                    {% if content.pdf_path %}
+                        <a href="{{ content.pdf_path }}" class="download-link">Download PDF</a>
+                    {% endif %}
+                </td>
+                <td>{{ content.updated_at }}</td> <!-- Displaying updated_at -->
+                <td>
+                    <form action="/delete_content/{{ content.id }}" method="POST" style="display: inline;">
+                        <button type="submit" class="delete-link" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>You haven't uploaded any content yet.</p>
+    {% endif %}
+
+{% endblock %}

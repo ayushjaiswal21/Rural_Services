@@ -1,0 +1,62 @@
+<!-- templates/education_register.html -->
+{% extends "education_LogReg_layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block page_title %}{{ user_type.capitalize() }} Registration{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+
+        {% if user_type == 'teacher' %}
+            <!-- Additional fields for teacher registration -->
+            <div class="form-group">
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience" placeholder="Enter your teaching experience" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="field">Field:</label>
+                <select id="field" name="field" required>
+                    <option value="" disabled selected>Select your field</option>
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="skills">Skills</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="class_specialization">Class Specialization:</label>
+                <input type="text" id="class_specialization" name="class_specialization" placeholder="Enter classes you specialize in" required>
+            </div>
+            <div class="form-group">
+                <label for="subject_specialization">Subject Specialization:</label>
+                <input type="text" id="subject_specialization" name="subject_specialization" placeholder="Enter subjects you specialize in" required>
+            </div>
+        {% endif %}
+    
+
+        <div class="form-actions">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+
+    {% if user_type == 'student' %}
+        <a href="{{ url_for('register', user_type='teacher') }}" class="switch-link">Register as a Teacher</a>
+    {% else %}
+        <a href="{{ url_for('register', user_type='student') }}" class="switch-link">Register as a Student</a>
+    {% endif %}
+{% endblock %}

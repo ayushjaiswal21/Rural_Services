@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrier Guidance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrier_guidance_style.css') }}">
+    <script src="https://kit.fontawesome.com/e78428e723.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2 class="heading1">Find Your Carrier Path</h2>
+
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. Which job is better after 12th?</h4>
+           <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>After 12th Science, you can pursue careers in engineering, medicine, biotechnology, environmental science, computer science, and pharmacy. Each offers various specializations and career paths. </p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. Which course has the highest salary?</h4>
+           <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p> Medicine/MBBS.
+                Computer Science Engineering.
+                Research.
+                MBA.
+                Data Science.
+                Business Analytics.
+                Chartered Accountancy.
+                Investment Banking.
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. How to earn after 10th?</h4>
+            <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>Online Tutoring.
+                Content Writing.
+                Social Media Influencer.
+                Telecalling Assistant.
+                Graphic Designing.
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. Can I study after 10th?</h4>
+          <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>There are many courses available to choose after ten such as Higher Secondary, Vocational Higher Secondary, THSC, Poly Diploma, ITI, KGCE Certificate courses, 
+            Food Craft courses and other Short Term Certificate courses as well as vocational courses.
+            </p>
+        </div>
+    
+    </div>
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. Which career should I choose after graduation?</h4>
+          <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>By doing specialization in HR, you can go for HR managers, HR analysts, HR executives, and other administration profiles. Specialization in marketing includes marketing manager, brand manager, marketing research.
+                Specialization in finance includes investment banker, analyst, finance officer, job-related to banking.
+            </p>
+        </div>
+    </div>
+    
+
+    <script>
+        const accordian = document.querySelectorAll('.accordian');
+accordian.forEach(accordian => {
+    const icon = accordian.querySelector('.icon');
+    const answer = accordian.querySelector('.answer');
+
+    accordian.addEventListener('click', () =>{
+        if(icon.classList.contains('active')){
+            icon.classList.remove('active')
+            answer.style.maxHeight=null;
+        }
+        else{
+            icon.classList.add('active')
+            answer.style.maxHeight =  answer.scrollHeight + 'px';
+        }
+    })
+})
+    </script>
+</body>
+</html>

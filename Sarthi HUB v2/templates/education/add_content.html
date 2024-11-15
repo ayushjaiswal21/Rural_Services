@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <style>
+        /* Form Styles */
+        form.add-content-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        form.add-content-form label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        form.add-content-form input, form.add-content-form select, form.add-content-form textarea {
+            width: 97%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form.add-content-form button.submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form.add-content-form button.submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Flex for add buttons */
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .add-new-btn {
+            background-color: #4A90E2;
+            color: white;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .add-new-btn:hover {
+            background-color: #357ABD;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <h2 style="text-align: center; margin-top: 20px;">Add New Content</h2>
+
+    <form class="add-content-form" action="{{ url_for('add_content') }}" method="POST" enctype="multipart/form-data">
+        <!-- Content Title -->
+        <label for="content_title">Content Title</label>
+        <input type="text" name="content_title" id="content_title" required>
+
+        <!-- Content Description -->
+        <label for="content_description">Content Description</label>
+        <textarea name="content_description" id="content_description" rows="4" required></textarea>
+
+        <!-- Class Selection or Add New -->
+        <div class="form-section">
+            <label for="class">Select Class</label>
+            <div class="flex-container">
+                <select name="class" id="class" required>
+                    <option value="">Select an existing class</option>
+                    {% for class in classes %}
+                    <option value="{{ class.id }}">{{ class.class_name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="button" class="add-new-btn" onclick="showAddNew('class')">Add New Class</button>
+            </div>
+
+            <div id="new_class_input" style="display:none;">
+                <label for="new_class">New Class Name</label>
+                <input type="text" name="new_class" id="new_class">
+            </div>
+        </div>
+
+        <!-- Subject Selection or Add New -->
+        <div class="form-section">
+            <label for="subject">Select Subject</label>
+            <div class="flex-container">
+                <select name="subject" id="subject" required>
+                    <option value="">Select an existing subject</option>
+                    {% for subject in subjects %}
+                    <option value="{{ subject.id }}">{{ subject.subject_name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="button" class="add-new-btn" onclick="showAddNew('subject')">Add New Subject</button>
+            </div>
+
+            <div id="new_subject_input" style="display:none;">
+                <label for="new_subject">New Subject Name</label>
+                <input type="text" name="new_subject" id="new_subject">
+            </div>
+        </div>
+
+        <!-- Unit Selection or Add New -->
+        <div class="form-section">
+            <label for="unit">Select Unit</label>
+            <div class="flex-container">
+                <select name="unit" id="unit" required>
+                    <option value="">Select an existing unit</option>
+                    {% for unit in units %}
+                    <option value="{{ unit.id }}">{{ unit.unit_name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="button" class="add-new-btn" onclick="showAddNew('unit')">Add New Unit</button>
+            </div>
+
+            <div id="new_unit_input" style="display:none;">
+                <label for="new_unit">New Unit Name</label>
+                <input type="text" name="new_unit" id="new_unit">
+            </div>
+        </div>
+
+        <!-- Topic Selection or Add New -->
+        <div class="form-section">
+            <label for="topic">Select Topic</label>
+            <div class="flex-container">
+                <select name="topic" id="topic" required>
+                    <option value="">Select an existing topic</option>
+                    {% for topic in topics %}
+                    <option value="{{ topic.id }}">{{ topic.topic_name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="button" class="add-new-btn" onclick="showAddNew('topic')">Add New Topic</button>
+            </div>
+
+            <div id="new_topic_input" style="display:none;">
+                <label for="new_topic">New Topic Name</label>
+                <input type="text" name="new_topic" id="new_topic">
+            </div>
+        </div>
+
+        <!-- File Upload -->
+        <label for="video">Upload Video</label>
+        <input type="file" name="video" id="video">
+
+        <label for="pdf">Upload PDF</label>
+        <input type="file" name="pdf" id="pdf">
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Add Content</button>
+    </form>
+
+    <script>
+        function showAddNew(type) {
+            const inputId = `new_${type}_input`;
+            const inputElement = document.getElementById(inputId);
+            if (inputElement.style.display === 'none') {
+                inputElement.style.display = 'block';
+            } else {
+                inputElement.style.display = 'none';
+            }
+        }
+    </script>
+
+{% endblock %}

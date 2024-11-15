@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Rural Services Platform">
+    
+    <!-- Page Title -->
+    <title>{% block title %}SarthiHub{% endblock %}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+
+
+    {% block head %}{% endblock %}
+
+
+    
+    
+    <!-- Google Translate API Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+
+
+    {% block top %}{% endblock %}
+
+
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <!-- Logo on the left -->
+            <div class="logo">
+                <img src="static\images\ashok.png" alt="Logo">
+            </div>
+            <div class="logo">
+                <img src="static\images\Home Page_Logo\main LOGO.jpg" alt="Logo">
+            </div>
+            
+            <!-- Display selected field in the middle -->
+            <div class="selected-field">
+                <h2 id="field-name"><b>{{ field_name }}</b></h2>
+            </div>
+            
+            <!-- Language Selector using Google Translate -->
+            <div id="google_translate_element" class="translate-section"></div>
+            
+            <!-- Page-specific Login/Logout Section on the top right -->
+            {% if login_req %}
+                {% block authentication %}{% endblock %}
+            {% endif %}
+        </div>
+    </header>
+    
+
+
+
+
+    <!-- Main Content Section -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-top">
+            <p>&copy; 2024 Rural Services Platform. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-left">
+                <p>Contact Us:<br>
+                    Phone: +1 234 567 890<br>
+                    Email: support@ruralservicesplatform.com
+                </p>
+            </div>
+            <div class="social-media">
+                <a href=""><img src="static/images/facebook.png" alt="Facebook" class="social-icon"></a>
+                <a href=""><img src="static/images/X.png" alt="X" class="social-icon"></a>
+                <a href=""><img src="static/images/insta.png" alt="Instagram" class="social-icon"></a>
+            </div>
+            <div class="footer-right">
+                <p>Helpline Numbers:<br>
+                    Medical Assistance: +1 800 123 4567<br>
+                    Government Schemes Support: +1 800 987 6543<br>
+                    General Inquiries: +1 800 112 2334
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+    <!-- JS Scripts -->
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>

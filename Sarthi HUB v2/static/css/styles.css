@@ -1,0 +1,307 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #EAF1FF; /* Neutral light gray background */
+    color: #333;
+    height: 100%;
+}
+
+header {
+    background-color: #EAF1FF; /* Dark neutral color for the header */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f5f9;
+    padding: 50px;
+    margin-bottom: 40px;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 20px 0;
+}
+
+.hero-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #2980b9;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+
+/* Logo Section */
+.logo img {
+    width: 100px; /* Slightly smaller for less visual impact */
+    height: auto;
+    cursor: pointer;
+}
+
+/* Center Section: Field Name */
+.selected-field {
+    flex-grow: 2;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.selected-field h2 {
+    margin: 0;
+    font-weight: normal;
+    color: #444; /* Softer text color */
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-section .profile-status {
+    font-size: 1rem;
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Language Selector */
+.translate-section {
+    margin-right: 15px;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    flex-grow: 1; /* Ensures footer sticks to the bottom */
+    background-color: #e8e8e8; /* Slightly off-white */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #EAF1FF;
+    color: rgb(29, 7, 7);
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.footer-top {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.contact-details {
+    text-align: left;
+}
+
+.helpline-numbers {
+    text-align: right;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+/* Ensure the footer sticks at the bottom */
+html {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+
+    .selected-field {
+        font-size: 1.2rem;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .profile-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px;
+    text-align: center;
+    z-index: 1000; /* Sit on top */
+}
+
+.hidden {
+    display: none; /* Hidden by default */
+}
+
+.social-media {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center;     /* Align the icons vertically */
+    gap: 20px;               /* Add some space between each icon */
+    margin-top: 20px;        /* Add some top margin for spacing */
+}
+
+.social-media a {
+    text-decoration: none;
+}
+
+.social-icon {
+    width: 40px;             /* Set a fixed width for each icon */
+    height: 40px;            /* Set a fixed height for each icon */
+    transition: transform 0.3s ease; /* Add a smooth transition for hover effects */
+}
+
+.social-icon:hover {
+    transform: scale(1.2);   /* Scale up the icons slightly on hover */
+}
+
+
+/* Simple card styles */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.card button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #45a049;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* learn more button */
+.learn-more-btn {
+    display: inline-block;
+    background-color: #4CAF50; /* Button background color */
+    color: white; /* Text color */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.learn-more-btn:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
+
+

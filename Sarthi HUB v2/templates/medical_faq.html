@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrier Guidance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/medical_faq_styles.css') }}">
+    <script src="https://kit.fontawesome.com/e78428e723.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2 class="heading1">Find Your medical Path</h2>
+
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. How can I book an appointment with a doctor online?</h4>
+           <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p> Visit our "Appointments" section, choose a doctor, and select a suitable date and time for your consultation.</p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q.  What services are available through remote consultations? </h4>
+           <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p> Our remote consultations cover general health inquiries, specialist consultations, follow-up appointments, and mental health support
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q.  How do I access my medical records online? </h4>
+            <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>Log in to your account and navigate to the "My Records" section to view and manage your medical records securely.
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q.What should I do in case of a medical emergency?</h4>
+          <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>For emergencies, please call the emergency services number immediately. Our platform is for non-urgent consultations and advice only.
+            </p>
+        </div>
+    
+    </div>
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q.Can I get prescriptions through online consultations? </h4>
+          <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>Yes, our doctors can prescribe medications during your consultation if deemed necessary.
+            </p>
+        </div>
+    </div>
+    
+
+    <script>
+        const accordian = document.querySelectorAll('.accordian');
+accordian.forEach(accordian => {
+    const icon = accordian.querySelector('.icon');
+    const answer = accordian.querySelector('.answer');
+
+    accordian.addEventListener('click', () =>{
+        if(icon.classList.contains('active')){
+            icon.classList.remove('active')
+            answer.style.maxHeight=null;
+        }
+        else{
+            icon.classList.add('active')
+            answer.style.maxHeight =  answer.scrollHeight + 'px';
+        }
+    })
+})
+    </script>
+</body>
+</html>

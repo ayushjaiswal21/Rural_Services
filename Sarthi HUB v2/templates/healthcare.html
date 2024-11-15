@@ -1,0 +1,358 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- for the arrows -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Custom CSS (optional, for further customizations) -->
+    <style>
+        .carousel-item img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .scheme-box {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scheme-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1200px;
+        }
+
+        .step-box {
+            width: 250px; /* Increased width */
+            height: 150px; /* Increased height */
+            display: flex; /* Use flexbox for alignment */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            margin: 20px; /* Add some spacing around boxes */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+            border-radius: 8px; /* Optional: Rounded corners */
+        }
+
+        .arrow {
+            font-size: 2.5em; /* Adjust arrow size for better visibility */
+            margin: 0 10px; /* Add horizontal margin to space it from boxes */
+            align-self: center; /* Center the arrow in its column */
+        }
+
+
+        .arrow {
+            font-size: 2em; /* Adjust arrow size */
+            margin: 0 10px; /* Add horizontal margin to space it from boxes */
+            align-self: center; /* Center the arrow in its column */
+        }
+
+        .fas {
+            color: #007bff;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-text {
+            max-width: 50%;
+        }
+
+        .about-video {
+            max-width: 45%;
+        }
+
+        .bed-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #fff;
+            height: 43rem; /* Keep this if you want a fixed height */
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content vertically */
+            text-align: center;
+            width: 75%; /* Make the content container responsive */
+        }
+
+        .about-us {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between icon and title */
+        }
+
+        .about-icon {
+            width: 40px; /* Adjust icon size */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .about-title {
+            color: #6018ec;
+            font-size: 1.5rem; /* Adjust font size */
+            font-weight: bold; /* Make the title bold */
+        }
+
+        .main-heading {
+            font-size: 5rem; /* Main heading size */
+            font-weight: bold; /* Main heading weight */
+            margin: 20px 0; /* Margin around the heading */
+        }
+
+        .description {
+            font-size: 1.25rem; /* Slightly smaller text size */
+            width: 90%; /* Responsive width */
+            margin-bottom: 20px; /* Space below the paragraph */
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+
+        .consult-button, .help-button {
+            padding: 12px 24px; /* Button padding */
+            font-size: 1.5rem; /* Button font size */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s; /* Smooth transition for hover */
+        }
+
+        .consult-button {
+            background-color: #0067fa;
+            color: white;
+            border: 2px solid #0067fa; /* Match border color */
+        }
+
+        .help-button {
+            background-color: white;
+            color: #0067fa;
+            border: 2px solid #0067fa; /* Match border color */
+        }
+
+        .consult-button:hover, .help-button:hover {
+            background-color: #0056d1; /* Darker blue for consult button on hover */
+            color: white; /* Change text color for contrast */
+        }
+
+        .bed-image {
+            margin-top: 20px; /* Space above the image */
+            width: auto; /* Allow auto size */
+            max-width: 100%; /* Make responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <h1 style="text-align: center;">Explore Healthcare Services</h1>
+
+    <!-- Bootstrap Carousel -->
+    <div id="healthcareCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Carousel Indicators (Optional Dots for Navigation) -->
+        <ol class="carousel-indicators">
+            <li data-target="#healthcareCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#healthcareCarousel" data-slide-to="1"></li>
+            <li data-target="#healthcareCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Carousel Inner (Slides) -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="static\images\Banner Images\Medical\medical banner 2.jpg" class="d-block w-100" alt="Healthcare Service 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Telemedicine Consultation</h5>
+                    <p>Connect with certified doctors for a virtual consultation.</p>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="static\images\Banner Images\Medical\medical banner 3.png" class="d-block w-100" alt="Healthcare Service 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Health Awareness Programs</h5>
+                    <p>Access valuable health education and prevention tips.</p>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="static\images\Banner Images\Medical\medical banner.jpg" class="d-block w-100" alt="Healthcare Service 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Prescription Services</h5>
+                    <p>Get prescriptions sent directly to your local pharmacy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls (Next and Previous) -->
+        <a class="carousel-control-prev" href="#healthcareCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#healthcareCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- How it works -->
+
+    <h1 style="text-align: center;">How it Works</h1>
+
+    <div class="container my-5">
+        <div class="row justify-content-center align-items-center text-center">
+            <!-- First Step -->
+            <div class="col-md-2">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 1</h4>
+                    <p>Select a healthcare service (e.g., consultation, prescription, awareness program)</p>
+                </div>
+            </div>
+    
+            <!-- Second Step -->
+            <div class="col-md-2">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 2</h4>
+                    <p>Browse available doctors, health programs, or request a service</p>
+                </div>
+            </div>
+    
+    
+            <!-- Third Step -->
+            <div class="col-md-2">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 3</h4>
+                    <p>Connect with the doctor via video or audio consultation</p>
+                </div>
+            </div>
+    
+            <!-- Fourth Step -->
+            <div class="col-md-2">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 4</h4>
+                    <p>Receive your prescription or medical advice and follow up if necessary</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- Content -->
+    <!-- Bed Part -->
+    <div class="bed-section">
+        <div class="content-container">
+            <h1 class="main-heading">We Provide Beds</h1>
+            <p class="description">
+                Enhancing healthcare access for the admit ward involves streamlining the admission process with digital systems to reduce wait times and paperwork. Real-time bed tracking ensures efficient allocation, reducing overcrowding. Integrating these systems with city-wide health modules improves coordination and resource sharing. This leads to timely and effective patient care.
+            </p>
+            <div class="button-group">
+                <button onclick="window.location.href='/book_bed'" class="consult-button">Apply for bed</button>
+
+                <!--<a href="registration_form.html" ></a>-->
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking OPD Section -->
+    <div class="bed-section">
+        <div class="content-container">
+            <h1 class="main-heading">Book Your OPD Appointment</h1>
+            <p class="description">
+                Our OPD services are designed to provide you with the best healthcare experience. Easily book your appointment with specialists in various fields, ensuring you receive timely care. Our efficient scheduling system minimizes wait times and enhances patient satisfaction.
+            </p>
+            <div class="button-group">
+                <button onclick="window.location.href='/consultation'" class="consult-button">Book an Appointment</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+
+    <!-- About Section with Flexbox for Layout -->
+    <section id="about" style="padding: 50px 20px;">
+        <div class="about-container">
+            <!-- Left side: About and description -->
+            <div class="about-text">
+                <h2>About Our Healthcare Services</h2>
+                <p>
+                Our platform offers rural communities access to essential healthcare services such as virtual consultations, prescription refills, and health awareness programs. 
+                Our mission is to provide professional medical support to areas with limited healthcare infrastructure.
+                </p>
+                <a href="#" class="learn-more-btn">Learn More</a>
+                <a href="/hgf" class="learn-more-btn">FAQs</a>
+
+            </div>
+    
+            <!-- Right side: Lazy-loaded video -->
+            <div class="about-video">
+                <!-- Placeholder image for the video -->
+                <img id="video-placeholder" src="static/images/Banner Images/tutorial_banner/healthcare.png" alt="Healthcare Tutorial" style="width: 100%; cursor: pointer;" onclick="loadVideo()">
+                
+                <!-- Actual video (initially hidden) -->
+                <div id="video-player" style="display: none;">
+                    <iframe id="tutorial-video" width="800" height="450" src="https://www.youtube.com/embed/c6XSCeBpBKY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <script>
+            function loadVideo() {
+                document.getElementById("video-player").style.display = "block";
+                document.getElementById("video-placeholder").style.display = "none";
+            }
+            </script>
+            
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- JavaScript to lazy-load the video -->
+    <script>
+        function loadVideo() {
+            document.getElementById('video-placeholder').style.display = 'none';
+            document.getElementById('video-player').style.display = 'block';
+            document.getElementById('tutorial-video').src = "https://youtu.be/c6XSCeBpBKY?si=j2ELGUj83DNOjSvM"; // Replace with actual video link
+        }
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

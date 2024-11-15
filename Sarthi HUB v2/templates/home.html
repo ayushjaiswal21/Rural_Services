@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}SarthiHub{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to SarthiHub</h1>
+            <p>Your one-stop solution for rural services including education, healthcare, agriculture, and more!</p>
+            <a href="#services" class="hero-button">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Explore Our Services</h2>
+        <div class="card-container">
+            <!-- Educational Section Card -->
+            <div class="card">
+                <img src="static/images/Home Page_Logo/image.png" alt="Education">
+                <h3>Educational Section</h3>
+                <p>Explore educational resources, courses, and learning material for rural communities.</p>
+                <button onclick="window.location.href='/education'">Learn More</button>
+            </div>
+
+            <!-- Government Schemes Section Card -->
+            <div class="card">
+                <img src="static/images/Home Page_Logo/scheme.png" alt="Government Schemes">
+                <h3>Government Schemes</h3>
+                <p>Find detailed information about the latest government schemes available for rural areas.</p>
+                <button onclick="window.location.href='/govtScheme'">Learn More</button>
+            </div>
+
+            <!-- Healthcare Section Card -->
+            <div class="card">
+                <img src="static/images/Home Page_Logo/medical.png" alt="Healthcare">
+                <h3>Healthcare Services</h3>
+                <p>Access health-related services, consultations, and find doctors near you.</p>
+                <button onclick="window.location.href='/healthcare'">Learn More</button>
+            </div>
+
+            <!-- Agricultural Services Section Card -->
+            <div class="card">
+                <img src="static/images/Home Page_Logo/agriculture.jpg" alt="Agricultural Services">
+                <h3>Agricultural Services</h3>
+                <p>Get the latest agricultural techniques, tools, and government support for farmers.</p>
+                <button onclick="window.location.href='/agriculture'">Learn More</button>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

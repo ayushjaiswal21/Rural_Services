@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reg_style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+   <!-- Container for the registration form -->
+  <div class="container">
+    <!-- Title of the form -->
+    <div class="title">Registration Form</div>
+    <hr>
+    <div class="content">
+      <!-- Registration form -->
+      <form action="#">
+        <div class="user-details">
+          <!-- Input box for full name -->
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter your name" required>
+          </div>
+          <!-- Input box for username -->
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter Your Last Name" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Gender</span>
+            <input type="text" placeholder="Enter your Gender" required>
+          </div>
+
+
+          <!-- Input box for email -->
+          <div class="input-box">
+            <span class="details">Contact no.</span>
+            <input type="number" placeholder="Enter your Number" required>
+          </div>
+          <!-- Input box for password -->
+          <div class="input-box"> <label class="details" for="age">Age</label>
+            <input id="age" type="number" placeholder="Enter your Age" required>
+            <!-- <span class="details">Age</span> -->
+           
+          </div>
+          
+          {% if button == "Apply for consultation" %}
+            <!-- Input box for confirming password -->
+            <div class="input-box">
+              <label for="departments">Choose a Department</label>
+              <select name="deparment" id="department">
+                  <option value="Allergy and Immunology">Allergy and Immunology</option>
+                  <option value="Dermatology">Dermatology</option>
+                  <option value="Neurology">Neurology</option>
+                  <option value="Anesthesiology">Anesthesiology</option>
+                  <option value="Diagnostic Radiology">Diagnostic Radiology</option>
+                  <option value="Cardiology">Cardiology</option>
+                  <option value="Gynecology">Gynecology</option>
+                  <option value="opthallogy">opthallogy</option>
+                  <option value="psychiatry">psychiatry</option>
+              </select>
+
+            </div>
+          {% endif %}
+
+          <div class="input-box">
+            <span class="details">Date of Booking</span>
+            <input type="date" name="dob" required>
+          </div>
+
+          {% if button == "Apply for bed" %}
+            <div class="input-box">
+              <label for="departments1">Choose Your Bed</label>
+              <select name="deparment1" id="department1">
+                  <option value="">General Ward</option>
+                  <option value="">Semi Deluxe</option>
+                  <option value="">Deluxe</option>
+                  <option value="">Emergency</option>
+              </select>
+          {% endif %}
+
+          </div>
+          <!-- Input box for date of birth -->
+        </div>
+        <!-- Button container -->
+        <div class="button-container">
+          <div class="button">
+            <!-- Submit button -->
+             <a href="http://127.0.0.1:5501/Hospital-Bed-Managment/index.html"><input type="submit" value="{{ button }}"></a>
+           <!-- Button trigger modal -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

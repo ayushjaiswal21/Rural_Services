@@ -1,0 +1,373 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- for the arrows -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Custom CSS (optional, for further customizations) -->
+    <style>
+        .carousel-item img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .about-text {
+            max-width: 50%;
+        }
+
+        .about-video {
+            max-width: 45%;
+        }
+    </style>
+
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/agri.css') }}">
+
+
+{% endblock %}
+
+{% block header %}
+
+    
+
+{% endblock %}
+
+{% block content %}
+
+    <h1 style="text-align: center;">Explore Agriculture Facility </h1>
+
+    <!-- Bootstrap Carousel -->
+    <div id="govtCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <ol class="carousel-indicators">
+            <li data-target="#govtCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#govtCarousel" data-slide-to="1"></li>
+            <li data-target="#govtCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="static/images/Banner Images/Agriculture/agriculture banner 3.jpg" class="d-block w-100" alt="Govt Scheme 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Market prices</h5>
+                    <p>Up-to-date information on market rates for various crops</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="static/images/Banner Images/Agriculture/agriculture banner.jpg" class="d-block w-100" alt="Govt Scheme 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Farming best practices</h5>
+                    <p>Guides and tips on effective farming techniques and sustainability.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="static/images/Banner Images/Agriculture/Agriculture-banner2.jpg" class="d-block w-100" alt="Govt Scheme 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Community form</h5>
+                    <p>A space for farmers to share experiences, ask questions, and support each other.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#govtCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#govtCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Required JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- How it works -->
+
+    <h1 style="text-align: center;">How it works</h1>
+
+    <div class="container my-5">
+        <div class="row justify-content-center align-items-center text-center">
+            <!-- First Step -->
+            <div class="col-md-3">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 1</h4>
+                    <p>Select the service you need (e.g., Medical, Education, Govt Scheme)</p>
+                </div>
+            </div>
+
+            <!-- Arrow between boxes -->
+            <div class="col-md-1">
+                <i class="fas fa-arrow-right fa-3x"></i>
+            </div>
+
+            <!-- Second Step -->
+            <div class="col-md-3">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 2</h4>
+                    <p>Browse and explore the content or connect with experts</p>
+                </div>
+            </div>
+
+            <!-- Arrow between boxes -->
+            <div class="col-md-1">
+                <i class="fas fa-arrow-right fa-3x"></i>
+            </div>
+
+            <!-- Third Step -->
+            <div class="col-md-3">
+                <div class="step-box p-4 bg-light border">
+                    <h4>Step 3</h4>
+                    <p>Get personalized recommendations or download information</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="/agri_chatbot" class="chatbot-button" title="Chat with us!">
+        Ask Chatbot
+        <span class="chatbot-icon">🗨️</span>
+    </a>
+    
+    <div class="container">
+        <h1>Our Services</h1>
+        <h2>Leading Agriculture Consulting Services in India</h2>
+        <div class="services">
+            <div class="service">
+                <img
+                    alt="A hand holding a bunch of green rice plants in a field"
+                    height="400"
+                    src="https://storage.googleapis.com/a1aa/image/uVVBMxHjij78GNcTGtpwqLf1ZYLbwwm313OEWHcfznQx1vpTA.jpg"
+                    width="600"
+                />
+                <a href="https://kisaanmitrr.in/agriculture-consulting-services/">
+                <h3  >Agriculture Consulting</h3></a>
+                <p>
+                    Our hands-on farming solutions provide you with the
+                    results that you desire.
+                </p>
+            </div>
+            <div class="service">
+                <img
+                    alt="A dairy farm with cows in a barn"
+                    height="400"
+                    src="https://storage.googleapis.com/a1aa/image/V5zuL3l8qR6TJ9sWaUATulBRMHHl1FBuQMEnBJcLEiFd9b6E.jpg"
+                    width="600"
+                />
+                <a href="https://kisaanmitrr.in/dairy-farm-consulting-services/">
+                <h3>Dairy Farming Consulting</h3>
+                </a>
+                <p>
+                    We help you make better returns by providing you
+                    with data-based analysis.
+                </p>
+            </div>
+            <div class="service">
+                <img
+                    alt="Fish swimming in clear water"
+                    height="400"
+                    src="https://storage.googleapis.com/a1aa/image/kcNufqVSQzSDUqH1BerYLi0MAvZaHlMibMTFUWKxw2Au1vpTA.jpg"
+                    width="600"
+                />
+                <a href="https://kisaanmitrr.in/fish-farming-consulting-services/">
+                <h3>Fish Farming Consulting</h3>
+                </a>
+                <p>
+                    Research-based, high-value inputs to help your fish
+                    farming venture be the best in India.
+                </p>
+            </div>
+            <div class="service">
+                <img
+                    alt="Mushrooms on a wooden table"
+                    height="400"
+                    src="https://storage.googleapis.com/a1aa/image/2UX6XHVfhepxjUOVht2NUkUjr5cDCMDG8e9SV7kQ1xXeWfNdC.jpg"
+                    width="600"
+                />
+                <a href="https://kisaanmitrr.in/mushroom-farming-consulting-services/">
+                <h3>Mushroom Farm Consulting</h3>
+                </a>
+                <p>
+                    Low capital needs, high yields and better profits
+                    with our expert consulting services.
+                </p>
+            </div> 
+        </div>
+        <a class="view-all" href="/ag_s"> View all services </a>
+    </div>
+
+    <div class="choose">
+        <div class="container">
+            <h1>Why Choose Us</h1>
+            <div class="card-container">
+                <div class="card">
+                    <img alt="A variety of fresh fruits and vegetables" height="300" src="https://storage.googleapis.com/a1aa/image/kdfOCL2RlRSLZyhCukNnp0oTKwYkrNZG4reAdGgjpPXyAwpTA.jpg" width="300"/>
+                    <div class="card-content">
+                        <h2>Higher Yields</h2>
+                        <p>better quality produce for longer</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img alt="Close-up of soil with a plant growing" height="300" src="https://storage.googleapis.com/a1aa/image/l6gOLjWlu6q5KlVBd4cTnfcE9es4yVxI6tuPM6r5iRepBgTnA.jpg" width="300"/>
+                    <div class="card-content">
+                        <h2>Soil Integrity</h2>
+                        <p>researched to protect soil</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img alt="Irrigation system watering plants" height="300" src="https://storage.googleapis.com/a1aa/image/fvZkOe8w3pnMUUeo7tJHH5wnfYOAcflBJuR2XTWYTW1NGAOdC.jpg" width="300"/>
+                    <div class="card-content">
+                        <h2>Irrigation</h2>
+                        <p>low irrigation farming</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img alt="Grocery store with fresh produce" height="300" src="https://storage.googleapis.com/a1aa/image/R5Urgh7azO4mFxVG6wSeKAAsatqYeXDmftNffehngfRoXA40JA.jpg" width="300"/>
+                    <div class="card-content">
+                        <h2>Better Price</h2>
+                        <p>best deals secured</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+       <hr>
+
+       <about>
+        <div class="container">
+         <div class="content">
+          <h1>
+           About KisaanSarthi - India's Best Agriculture Consulting Company
+          </h1>
+          <p>
+           KisaanSarthi is a full-service top agriculture consulting company in India. We provide unique, innovative, sustainable and well-researched solutions for farmers to accelerate their growth. Our services include project planning and development, turn-key implementation, providing support in value delivery, finding out additional markets for products and getting the farmers the best price. We focus on result driven, tailormade solutions with a growth and sustainability mindset. Our farming consulting business helps farmers make better decisions when it comes to the crops they should plant, by providing them with a variety of options that best suit the climate, water levels, and market requirement specific to their geography.
+          </p>
+          <p>
+           We have tie-ups with multiple Indian conglomerates who provide steady requirements for the farm products at the most optimal rates. KisaanMitrr works with farmers, government agencies, local, national, and international businesses to optimize your ROI. We’re easily rated among the top agriculture consulting firms in India.
+          </p>
+         </div>
+        </div>
+       </about>
+
+       <hr>
+
+       <!-- About Section -->
+    <!-- About Section with Flexbox for Layout -->
+    <section id="about" style="padding: 50px 20px;">
+        <div class="about-container">
+        <!-- Left side: About and description -->
+        <div class="about-text">
+            <h2>About SarthiHub</h2>
+            <p>
+            Welcome to SarthiHub, your one-stop platform for rural services including medical consultations, educational resources, and government schemes. 
+            We aim to make essential services more accessible to rural communities, providing expertise and support right at your fingertips.
+            </p>
+            <a href="#" class="learn-more-btn">Learn More</a>
+            <a href="/agf" class="learn-more-btn">FAQs</a>
+
+
+        </div>
+    
+        <div class="about-video">
+            <!-- Placeholder image for the video -->
+            <img id="video-placeholder" src="static\images\Banner Images\tutorial_banner\agriculture.png" alt="Tutorial video" style="width: 100%; cursor: pointer;" onclick="loadVideo()">
+            
+            <!-- Actual video (initially hidden) -->
+            <div id="video-player" style="display: none;">
+                <iframe id="tutorial-video" width="800" height="450" 
+                    src="https://www.youtube.com/embed/Vnxuc4Q3y90?mute=0" 
+                    frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <script>
+        function loadVideo() {
+            document.getElementById("video-player").style.display = "block";
+            document.getElementById("video-placeholder").style.display = "none";
+        }
+        </script>
+        
+        </div>
+
+    </section>
+
+    <hr>
+       
+		<div class="form-container">
+			<form action="/#wpcf7-f34-p2275-o1" method="post" class="contact-form" id="contactForm">
+				<div class="contact-wrapper">
+					<p class="one-third">
+						<input class="form-input" type="text" name="your-name" placeholder="Name" required>
+						<input class="form-input" type="number" name="phone" placeholder="Phone" required>
+						<input class="form-input" type="email" name="email" placeholder="Email">
+						<textarea class="form-textarea" name="your-message" placeholder="Message" required></textarea>
+					</p>
+					<p class="submit-btn">
+						<button type="button" class="form-submit" onclick="sendMessage()">Send Message</button>
+					</p>
+				</div>
+			</form>
+		</div>
+	<hr>
+    <p style="text-align: center;">Not sure about your future path? Consider refering to the FAQ section: </p>
+    <a href="/" class="learn-more-btn">FAQs</a>
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+    <script>
+        function sendMessage() {
+            // Get form inputs
+            const name = document.querySelector('input[name="your-name"]').value;
+            const phone = document.querySelector('input[name="phone"]').value;
+            const message = document.querySelector('textarea[name="your-message"]').value;
+
+            // Check if required fields are filled
+            if (name && phone && message) {
+                alert("Response Taken");
+                document.getElementById("contactForm").reset(); // Clear form after submission
+            } else {
+                alert("Please fill the form then sumbit");
+            }
+        }
+    </script>
+
+{% endblock %}

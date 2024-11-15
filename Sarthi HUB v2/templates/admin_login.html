@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Admin Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+            background-image: linear-gradient(90deg, transparent 1px, #ffff 1px), linear-gradient(180deg, transparent 1px, #fff 1px);
+            background-size: 50px 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #a28cf0;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #ccc;
+        }
+
+        .login-container a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-container a.signup {
+            color: #a28cf0;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #a28cf0;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .admin-link {
+            margin-top: 20px;
+            color: #a28cf0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .cross {
+            color: #fff;
+            text-decoration: none;
+            font-size: 30px;
+            position: relative;
+            left: 445px;
+            top: -162px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="cross">x</a>
+    <div class="login-container">
+        <h2>ADMIN LOGIN</h2>
+        <input type="text" placeholder="Admin Username">
+        <input type="password" placeholder="Password">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <a href="#">Forgot Password</a>
+        </div>
+        <button type="submit">Login</button>
+        <div class="admin-link">
+            <span>Are you visitor? </span><a href="/user_login">User Login</a>
+        </div>
+    </div>
+</body>
+</html>

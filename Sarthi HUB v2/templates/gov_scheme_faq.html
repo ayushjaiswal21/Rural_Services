@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrier Guidance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gov_scheme_style.css') }}">
+    <script src="https://kit.fontawesome.com/e78428e723.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2 class="heading1">Find Your Scheme</h2>
+
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. How do I find out which government schemes I am eligible for?</h4>
+           <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>Use our "Eligibility Checker" tool. Enter your personal details and requirements, and it will display the schemes you qualify for.</p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q.  What information do I need to apply for a scheme?</h4>
+           <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>Each scheme has different requirements. Generally, you’ll need personal identification, proof of income, and relevant documents based on the scheme. Check the specific requirements listed on the scheme’s page.
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. How can I track the status of my application?</h4>
+            <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>After submitting your application, go to the "Application Status" section. Enter your application number to see the current status and any updates.
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. Are there any deadlines for applying to these schemes?</h4>
+          <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>Yes, each scheme has its own deadlines. You can find the deadline information in the details section of each scheme.
+            </p>
+        </div>
+    
+    </div>
+    <div class="accordian">
+        <div class="Question">
+            <h4>Q. What should I do if I encounter problems while applying online?</h4>
+          <i class =" icon fa-sharp fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+            <p>If you experience issues, visit our "Support" section or contact our helpline for assistance.
+            </p>
+        </div>
+    </div>
+    
+
+    <script>
+        const accordian = document.querySelectorAll('.accordian');
+accordian.forEach(accordian => {
+    const icon = accordian.querySelector('.icon');
+    const answer = accordian.querySelector('.answer');
+
+    accordian.addEventListener('click', () =>{
+        if(icon.classList.contains('active')){
+            icon.classList.remove('active')
+            answer.style.maxHeight=null;
+        }
+        else{
+            icon.classList.add('active')
+            answer.style.maxHeight =  answer.scrollHeight + 'px';
+        }
+    })
+})
+    </script>
+</body>
+</html>
